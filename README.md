@@ -2,6 +2,10 @@
 
 A complete full-stack productivity dashboard with user authentication, modular frontend architecture, and comprehensive task management. Features Supabase authentication, Node.js/Express backend, and N8N workflow integration.
 
+-Video Demo-
+
+
+
 ## File Structure
 
 ```
@@ -24,6 +28,12 @@ AI_PRODUCTIVITY_TOOLS_DEPLOYMENT/
 ├── handlers.js        # Event handlers and form submissions
 └── README.md          # This documentation
 ```
+
+## Back End - N8N
+
+Currently back end of this application is using N8N, here is the workflow.
+
+<img width="936" height="715" alt="Productivity_Back End" src="https://github.com/user-attachments/assets/1493b6be-c592-496f-8572-abfad77946f6" />
 
 ## Features
 
@@ -392,5 +402,6 @@ taskkill /PID XXXX /F
 - Ensure proper data format in profile payloads
 
 ## License
+
 
 This project is for personal productivity management and educational purposes.
