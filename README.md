@@ -4,7 +4,7 @@ A complete full-stack productivity dashboard with user authentication, modular f
 
 -Video Demo-
 
-
+https://github.com/user-attachments/assets/cae8d149-b584-428f-aef6-ff885295cf26
 
 ## File Structure
 
@@ -405,3 +405,4 @@ taskkill /PID XXXX /F
 
 
 This project is for personal productivity management and educational purposes.
+
