@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Signup Success - AI Productivity Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+
+    /* Form animations */
+    .form-container {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Logo animation */
+    .logo-container {
+      animation: logoPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes logoPulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    /* Success animation */
+    .success-icon {
+      animation: checkmark 0.8s ease-in-out;
+    }
+
+    @keyframes checkmark {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-screen">
+  <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full space-y-8 form-container">
+      <!-- Header -->
+      <div class="text-center">
+        <div class="logo-container w-20 h-20 bg-green-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+          <i data-feather="check" class="w-10 h-10 text-white success-icon"></i>
+        </div>
+        <h2 class="text-3xl font-bold text-gray-800 mb-2">Account Created!</h2>
+        <p class="text-gray-600">Your account has been successfully created</p>
+      </div>
+
+      <!-- Success Message -->
+      <div class="bg-white rounded-lg shadow-lg border p-8">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-feather="mail" class="w-8 h-8 text-green-600"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Check Your Email</h3>
+          <p class="text-gray-600 mb-6">
+            We've sent a verification link to your email address. Please check your inbox and click the link to activate your account.
+          </p>
+
+          <!-- Login Button -->
+          <div class="space-y-4">
+            <a
+              href="login.html"
+              class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 inline-block text-center"
+            >
+              <i data-feather="log-in" class="w-5 h-5 inline mr-2"></i>
+              Go to Login
+            </a>
+
+            <p class="text-sm text-gray-500">
+              Didn't receive the email?
+              <a href="#" class="text-blue-600 hover:text-blue-500 font-medium">
+                Resend verification
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="text-center text-sm text-gray-500">
+        <p>&copy; <span id="year"></span> AI Productivity Dashboard</p>
+        <p class="mt-1">Secure authentication powered by Supabase</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Initialize Feather icons
+    feather.replace();
+
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign Up - AI Productivity Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+
+    /* Form animations */
+    .form-container {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Input focus animations */
+    .input-focus {
+      transition: all 0.3s ease;
+    }
+
+    .input-focus:focus {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
+    }
+
+    /* Button hover effects */
+    .btn-signup {
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-signup:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-signup:active {
+      transform: translateY(0);
+    }
+
+    /* Logo animation */
+    .logo-container {
+      animation: logoPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes logoPulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-screen">
+  <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full space-y-8 form-container">
+      <!-- Header -->
+      <div class="text-center">
+        <div class="logo-container w-20 h-20 bg-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+          <i data-feather="cpu" class="w-10 h-10 text-white"></i>
+        </div>
+        <h2 class="text-3xl font-bold text-gray-800 mb-2">Create Account</h2>
+        <p class="text-gray-600">Join the AI Productivity Dashboard</p>
+      </div>
+
+      <!-- Signup Form -->
+      <div class="bg-white rounded-lg shadow-lg border p-8">
+        <form id="signupForm" action="/signup" method="POST" class="space-y-6">
+          <!-- Email Field -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">
+              <i data-feather="mail" class="w-4 h-4 inline mr-2"></i>
+              Email Address
+            </label>
+            <input
+              type="email"
+              name="email"
+              required
+              class="input-focus w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+              placeholder="Enter your email"
+            />
+          </div>
+
+          <!-- Password Field -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">
+              <i data-feather="lock" class="w-4 h-4 inline mr-2"></i>
+              Password
+            </label>
+            <div class="relative">
+              <input
+                type="password"
+                name="password"
+                required
+                class="input-focus w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                placeholder="Create a password"
+              />
+              <button
+                type="button"
+                class="absolute inset-y-0 right-0 pr-3 flex items-center"
+                id="togglePassword"
+              >
+                <i data-feather="eye" class="w-5 h-5 text-gray-400 hover:text-gray-600"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Terms and Conditions -->
+          <div class="flex items-center">
+            <input
+              id="terms"
+              name="terms"
+              type="checkbox"
+              required
+              class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+            />
+            <label for="terms" class="ml-2 block text-sm text-gray-700">
+              I agree to the <a href="#" class="text-blue-600 hover:text-blue-500">Terms of Service</a> and <a href="#" class="text-blue-600 hover:text-blue-500">Privacy Policy</a>
+            </label>
+          </div>
+
+          <!-- Signup Button -->
+          <div>
+            <button
+              type="submit"
+              class="btn-signup w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200"
+            >
+              <i data-feather="user-plus" class="w-5 h-5 inline mr-2"></i>
+              Create Account
+            </button>
+          </div>
+        </form>
+
+        <!-- Sign In Link -->
+        <div class="mt-4 text-center">
+          <p class="text-sm text-gray-600">
+            Already have an account?
+            <a href="login.html" class="text-blue-600 hover:text-blue-500 font-medium">
+              Sign in here
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="text-center text-sm text-gray-500">
+        <p>&copy; <span id="year"></span> AI Productivity Dashboard</p>
+        <p class="mt-1">Secure registration powered by industry-standard encryption</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Initialize Feather icons
+    feather.replace();
+
+    // DOM elements
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.querySelector('input[name="password"]');
+
+    // Toggle password visibility
+    togglePassword.addEventListener('click', () => {
+      const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput.setAttribute('type', type);
+
+      const icon = togglePassword.querySelector('i');
+      icon.setAttribute('data-feather', type === 'password' ? 'eye' : 'eye-off');
+      feather.replace();
+    });
+
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

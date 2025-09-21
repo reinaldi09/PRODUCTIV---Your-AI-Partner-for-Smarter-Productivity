@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard - AI Productivity Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+
+    /* Form animations */
+    .form-container {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Logo animation */
+    .logo-container {
+      animation: logoPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes logoPulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    /* Card hover effects */
+    .card {
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-screen">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-lg border-b">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <div class="logo-container w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
+            <i data-feather="cpu" class="w-6 h-6 text-white"></i>
+          </div>
+          <span class="ml-3 text-xl font-semibold text-gray-800">AI Productivity Dashboard</span>
+        </div>
+        <div class="flex items-center space-x-4">
+          <span class="text-sm text-gray-600">Welcome, <span id="userEmail">{{userEmail}}</span></span>
+          <a
+            href="/logout"
+            class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center"
+          >
+            <i data-feather="log-out" class="w-4 h-4 mr-2"></i>
+            Logout
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <!-- Welcome Section -->
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-800 mb-4">Welcome to Your Dashboard</h1>
+        <p class="text-xl text-gray-600">Access your AI productivity tools and manage your account</p>
+      </div>
+
+      <!-- Dashboard Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 form-container">
+        <!-- Tool 1 -->
+        <div class="card bg-white rounded-lg shadow-lg border p-6">
+          <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+            <i data-feather="zap" class="w-6 h-6 text-blue-600"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">AI Assistant</h3>
+          <p class="text-gray-600 mb-4">Get help with tasks using our advanced AI assistant</p>
+          <a href="index.html" class="text-blue-600 hover:text-blue-500 font-medium">
+            Access Tool →
+          </a>
+        </div>
+
+        <!-- Tool 2 -->
+        <div class="card bg-white rounded-lg shadow-lg border p-6">
+          <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+            <i data-feather="bar-chart-3" class="w-6 h-6 text-green-600"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Analytics</h3>
+          <p class="text-gray-600 mb-4">View detailed analytics and performance metrics</p>
+          <a href="#" class="text-blue-600 hover:text-blue-500 font-medium">
+            View Analytics →
+          </a>
+        </div>
+
+        <!-- Tool 3 -->
+        <div class="card bg-white rounded-lg shadow-lg border p-6">
+          <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+            <i data-feather="settings" class="w-6 h-6 text-purple-600"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Settings</h3>
+          <p class="text-gray-600 mb-4">Manage your account settings and preferences</p>
+          <a href="#" class="text-blue-600 hover:text-blue-500 font-medium">
+            Manage Settings →
+          </a>
+        </div>
+
+        <!-- Tool 4 -->
+        <div class="card bg-white rounded-lg shadow-lg border p-6">
+          <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+            <i data-feather="file-text" class="w-6 h-6 text-yellow-600"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Documents</h3>
+          <p class="text-gray-600 mb-4">Access and manage your documents</p>
+          <a href="#" class="text-blue-600 hover:text-blue-500 font-medium">
+            Browse Documents →
+          </a>
+        </div>
+
+        <!-- Tool 5 -->
+        <div class="card bg-white rounded-lg shadow-lg border p-6">
+          <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+            <i data-feather="users" class="w-6 h-6 text-red-600"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Team Collaboration</h3>
+          <p class="text-gray-600 mb-4">Work together with your team members</p>
+          <a href="#" class="text-blue-600 hover:text-blue-500 font-medium">
+            Start Collaborating →
+          </a>
+        </div>
+
+        <!-- Tool 6 -->
+        <div class="card bg-white rounded-lg shadow-lg border p-6">
+          <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+            <i data-feather="cloud" class="w-6 h-6 text-indigo-600"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Cloud Storage</h3>
+          <p class="text-gray-600 mb-4">Store and access your files in the cloud</p>
+          <a href="#" class="text-blue-600 hover:text-blue-500 font-medium">
+            Access Storage →
+          </a>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="text-center mt-16 text-sm text-gray-500">
+        <p>&copy; <span id="year"></span> AI Productivity Dashboard</p>
+        <p class="mt-1">Secure and powered by Supabase authentication</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Initialize Feather icons
+    feather.replace();
+
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

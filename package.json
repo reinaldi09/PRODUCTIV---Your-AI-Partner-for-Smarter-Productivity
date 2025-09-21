@@ -1,0 +1,21 @@
+{
+  "name": "ai_prod_tools_kilo",
+  "version": "1.0.0",
+  "description": "AI Productivity Dashboard with Supabase Authentication",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["ai", "productivity", "dashboard", "supabase", "authentication"],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.1",
+    "body-parser": "^1.20.3",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}
